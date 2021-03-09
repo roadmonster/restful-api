@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     private Integer id;
     private String lastName;
@@ -18,5 +18,4 @@ public class Employee {
     private Integer gender;
     private Department department;
     private Date birth;
-
 }

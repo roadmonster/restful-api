@@ -43,4 +43,8 @@ public class DepartmentRepository implements ObjectRepository<Department>{
         this.repository.remove(id);
         return dept;
     }
+
+    public Collection<Department>getDepartments(){
+        return this.repository.values();
+    }
 }
