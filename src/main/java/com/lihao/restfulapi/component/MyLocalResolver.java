@@ -12,7 +12,7 @@ public class MyLocalResolver implements LocaleResolver {
     public Locale resolveLocale(HttpServletRequest httpServletRequest) {
         String lang = httpServletRequest.getParameter("lan");
         Locale locale = Locale.getDefault();
-        if(lang == null){
+        if(lang != null){
             String[]splits = lang.split("_");
             locale = new Locale(splits[0], splits[1]);
         }
