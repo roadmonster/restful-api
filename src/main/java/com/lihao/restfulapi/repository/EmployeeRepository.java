@@ -2,6 +2,7 @@ package com.lihao.restfulapi.repository;
 
 import com.lihao.restfulapi.entities.Department;
 import com.lihao.restfulapi.entities.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
@@ -14,6 +15,11 @@ import java.util.Map;
 public class EmployeeRepository implements ObjectRepository<Employee>{
 
     private Map<Integer, Employee> repository;
+
+    @Autowired
+    private DepartmentRepository deptRepo;
+
+    private static Integer initId = 1001;
 
     public EmployeeRepository( ) throws ParseException {
         this.repository = new HashMap<>();
@@ -36,6 +42,12 @@ public class EmployeeRepository implements ObjectRepository<Employee>{
 
     @Override
     public void store(Employee employee) {
+        if(employee.getId() == null){
+            employee.setId(initId++);
+        }
+
+        employee.setDepartment(deptRepo.retrieve(employee.getDepartment().getId()));
+
         repository.put(employee.getId(), employee);
     }
 
