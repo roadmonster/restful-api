@@ -1,6 +1,7 @@
 package com.lihao.restfulapi.config;
 
 
+import com.lihao.restfulapi.component.LoginHandlerIntercepter;
 import com.lihao.restfulapi.component.MyLocalResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,10 +23,11 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("main.html").setViewName("dashboard");
             }
 
-            //TODO
+
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
-
+                registry.addInterceptor(new LoginHandlerIntercepter()).addPathPatterns("/**")
+                        .excludePathPatterns("/index.html", "/", "/user/login");
             }
         };
     }

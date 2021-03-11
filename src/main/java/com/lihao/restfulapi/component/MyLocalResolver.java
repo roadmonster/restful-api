@@ -10,7 +10,7 @@ import java.util.Locale;
 public class MyLocalResolver implements LocaleResolver {
     @Override
     public Locale resolveLocale(HttpServletRequest httpServletRequest) {
-        String lang = httpServletRequest.getParameter("lan");
+        String lang = httpServletRequest.getParameter("lang");
         Locale locale = Locale.getDefault();
         if(lang != null){
             String[]splits = lang.split("_");
