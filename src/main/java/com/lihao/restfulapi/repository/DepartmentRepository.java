@@ -14,6 +14,11 @@ public class DepartmentRepository implements ObjectRepository<Department>{
 
     public DepartmentRepository( ) {
         this.repository = new HashMap<>();
+        repository.put(101, new Department(101, "D-AA"));
+        repository.put(102, new Department(102, "D-BB"));
+        repository.put(103, new Department(103, "D-CC"));
+        repository.put(104, new Department(104, "D-DD"));
+        repository.put(105, new Department(105, "D-EE"));
     }
 
     @Override
