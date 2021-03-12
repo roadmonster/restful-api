@@ -10,12 +10,12 @@ public class LoginHandlerIntercepter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("loginuser");
         if(user == null){
-            //未登陆，返回登陆页面
-            request.setAttribute("msg","没有权限请先登陆");
+            //log in failure, forward request back to /index.html
+            request.setAttribute("msg","Not authorized, please login first");
             request.getRequestDispatcher("/index.html").forward(request,response);
             return false;
         }else{
-            //已登陆，放行请求
+            //logged in, give authority
             return true;
         }
 

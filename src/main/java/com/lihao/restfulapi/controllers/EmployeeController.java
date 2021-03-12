@@ -4,13 +4,15 @@ import com.lihao.restfulapi.entities.Employee;
 import com.lihao.restfulapi.repository.DepartmentRepository;
 import com.lihao.restfulapi.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
 import java.util.Collection;
 
-@RestController
+//need to use controller decorator in order to make themyleaf to render html
+@Controller
 public class EmployeeController {
 
     @Autowired
